@@ -58,12 +58,16 @@ local function ProcessTLUpdateFromServer( len, ply )
 		PHE.PH_TAUNT_CUSTOM.PROP   = {}
 
 		for _, t in pairs( Hunter_Taunts ) do
-			table.insert( PHE.PH_TAUNT_CUSTOM.HUNTER, t[1] )
+			-- table.insert( PHE.PH_TAUNT_CUSTOM.HUNTER, t[1])
+			PHE:AddCustomTaunt(TEAM_HUNTERS, t[2], t[1])
 		end
+    
 		
 		for _, t in pairs( Prop_Taunts ) do
-			table.insert( PHE.PH_TAUNT_CUSTOM.PROP, t[1] )
+			-- table.insert( PHE.PH_TAUNT_CUSTOM.PROP, t[1] )
+			PHE:AddCustomTaunt(TEAM_PROPS, t[2], t[1])
 		end
+		-- PHE:RefreshTauntList()
 	else
 		-- ## AMT-variant Prop Hunt
 		HUNTER_TAUNTS = {}		
